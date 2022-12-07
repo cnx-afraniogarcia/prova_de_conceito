@@ -16,4 +16,5 @@ public class Model implements Serializable {
 
     private String nome;
     private int idade;
+    private String cpf;
 }
