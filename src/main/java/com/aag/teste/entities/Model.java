@@ -15,4 +15,5 @@ public class Model implements Serializable {
     private static final long serialVersionUID = 1l;
 
     private String nome;
+    private int idade;
 }
