@@ -1,20 +1,17 @@
 package com.aag.teste.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@MappedSuperclass
+@EqualsAndHashCode
 public class Model implements Serializable {
     private static final long serialVersionUID = 1l;
-
-    private String nome;
-    private int idade;
-    private String cpf;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
+    private Long id;
 }
