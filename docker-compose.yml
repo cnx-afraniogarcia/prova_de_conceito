@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=123456
+    volumes:
+      - my-db:/var/lib/rabbitmq
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: "DBTESTE"
+      MYSQL_ROOT_PASSWORD: "@aag653DB%"
+    ports:
+      - "3306:3306"
+    volumes:
+      - my-db:/var/lib/mysql
+volumes:
+  my-db:
